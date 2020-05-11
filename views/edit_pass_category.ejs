@@ -1,0 +1,45 @@
+<%- include('header') %>
+
+<div class="container">
+  <!-- Default form login -->
+<form class="text-center border border-light p-5  col-lg-4 offset-lg-4" action="/password_detail/edit/<%= record._id %>" method="POST">
+<%if(success !=''){%>
+<p style="color: green;"> <%= success %> </p>
+<%}%> 
+    <!-- <p class="h4 mb-4">Sign in</p> -->
+          <select class="browser-default custom-select" name="pass_cat">
+            <option selected>Choose Password Category</option>
+            <% if(records.length > 0){
+              records.forEach(function(row){
+           %>
+            <option value="<%= row.password_category %>" <% if (row.password_category==record.password_category){  %> selected<%}%> >
+        <%=row.password_category %></option>
+           <%})}%> 
+           
+          </select>
+          <br>
+
+          <input type="hidden" value="<%= record._id %>" >
+    <div class="form-group">
+      <input type="text" class="form-control" value="<%= record.project_name%>" id="exampleInputPassword1" name="project_name" placeholder="Enter Project Name">
+    </div>
+   <textarea rows="5" id="editor1" name="pass_details" placeholder="Your Password Details">
+       <%=record.password_details%>
+   </textarea>
+    <!-- Sign in button -->
+    <button class="btn btn-info btn-block my-4" type="submit"> Update</button>
+
+    <!-- Register -->
+    <p>Not a member?
+        <a href="">Register</a>
+    </p>
+
+ 
+</form>
+<!-- Default form login -->
+</div>
+<script>
+  CKEDITOR.replace('editor1');
+</script>
+ 
+<%- include('footer') %>

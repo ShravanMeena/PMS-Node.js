@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+      <link rel='stylesheet' href='/stylesheets/styleForm.css' />
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js""></script>
+  </head>
+  <body>
+   
+<h1 style="text-align: center;" class="mt-3"> <%= title %>  </h1>
+
+<!-- Default form login -->
+<form class="text-center border border-light p-5 col-md-6  col-lg-4 offset-lg-4 offset-md-3 " action="/" method="POST">
+
+    <p class="h4 mb-4">Sign in</p>
+  <%if(msg != ""){%>
+      <%= msg %>
+    <%}%>
+    <!-- Email -->
+    <input type="text" id="defaultLoginFormEmail" name="uname" class="form-control mb-4" placeholder="Username">
+
+    <!-- Password -->
+    <input type="password" id="defaultLoginFormPassword" name="password" class="form-control mb-4" placeholder="Password">
+
+  
+        <div class="d-flex justify-content-around float-right">
+            <!-- Forgot password -->
+            <a href="#" style="color:gray">Forgot password?</a>
+        </div>
+    </div>
+
+    <!-- Sign in button -->
+    <button class="btn btn-info btn-block my-4" type="submit">Sign in</button>
+
+    <!-- Register -->
+    <p>Not a member?
+        <a href="/signup">Register</a>
+    </p>
+
+    <!-- Social login -->
+    <p>or sign in with:</p>
+
+    <a href="#" class="mx-2" role="button"><i class="fa fa-facebook-f light-blue-text"></i></a>
+    <a href="#" class="mx-2" role="button"><i class="fa fa-twitter light-blue-text"></i></a>
+    <a href="#" class="mx-2" role="button"><i class="fa fa-linkedin light-blue-text"></i></a>
+    <a href="#" class="mx-2" role="button"><i class="fa fa-github light-blue-text"></i></a>
+
+</form>
+<!-- Default form login -->
+
+ <%- include('footer') %>
